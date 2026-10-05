@@ -4,6 +4,8 @@
   max-width: 600px;
   color: var(--text-primary-color);
   font-family: 'Jet Brains Mono', serif;
+
+  /* box-sizing: border-box; */
 }
 
 .menu {
@@ -12,4 +14,9 @@
   padding: 0;
   text-align: center;
   list-style-type: none;
+}
+
+.ingredients_list {
+  height: 65vh;
+  overflow-y: auto;
 }
