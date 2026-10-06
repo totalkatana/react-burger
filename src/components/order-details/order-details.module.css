@@ -1,0 +1,46 @@
+.order_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  width: 720px;
+}
+
+.order_id {
+  width: 520px;
+  height: 120px;
+  color: #f2f2f3;
+  font-weight: 400;
+  font-size: 144px;
+  font-family: 'Iceland', sans-serif;
+  line-height: 120px;
+  letter-spacing: 0%;
+  text-align: center;
+  text-shadow:
+    0 0 10px #3333ff80,
+    0 0 20px #3333ff80;
+}
+
+.text {
+  font-weight: 700;
+  font-size: 24px;
+  font-family: 'Jet Brains Mono', sans-serif;
+  line-height: 30px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  background-color: aqua;
+}
+
+.bottom_text {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: 'Jet Brains Mono', sans-serif;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-align: center;
+}

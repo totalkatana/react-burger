@@ -1,0 +1,11 @@
+.ingredients_section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+  line-height: 30px;
+}
