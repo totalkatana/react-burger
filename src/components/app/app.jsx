@@ -1,32 +1,23 @@
 import { Preloader } from '@krgaa/react-developer-burger-ui-components';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getIngredients } from '@/utils/api';
 import { AppHeader } from '@components/app-header/app-header';
 import { BurgerConstructor } from '@components/burger-constructor/burger-constructor';
 import { BurgerIngredients } from '@components/burger-ingredients/burger-ingredients';
+import { fetchIngredients } from '@services/ingredients/ingredients-actions';
+import { selectIngredientsState } from '@services/ingredients/ingredients-slice';
 
 import styles from './app.module.css';
 
 export const App = () => {
-  const [ingredients, setIngredients] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
+  const { status, error } = useSelector(selectIngredientsState);
+  const isLoading = status === 'idle' || status === 'loading';
 
   useEffect(() => {
-    const loadIngredients = async () => {
-      try {
-        const data = await getIngredients();
-        setIngredients(data.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadIngredients();
-  }, []);
+    dispatch(fetchIngredients());
+  }, [dispatch]);
 
   return (
     <div className={styles.app}>
@@ -39,8 +30,8 @@ export const App = () => {
         {error && <p>Не удалось загрузить ингредиенты</p>}
         {!isLoading && !error && (
           <>
-            <BurgerIngredients ingredients={ingredients} />
-            <BurgerConstructor ingredients={ingredients} />
+            <BurgerIngredients />
+            <BurgerConstructor />
           </>
         )}
       </main>

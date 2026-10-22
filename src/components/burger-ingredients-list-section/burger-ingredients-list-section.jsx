@@ -4,12 +4,15 @@ import styles from './burger-ingredients-list-section.module.css';
 
 export const BurgerIngredientsListSection = ({
   title,
+  headingRef,
   ingredients,
   onIngredientClick,
 }) => {
   return (
     <section>
-      <h2 className={styles.title}>{title}</h2>
+      <h2 ref={headingRef} className={styles.title}>
+        {title}
+      </h2>
       <div className={`${styles.ingredients_section} pt-6 pb-10 pl-4 pr-4`}>
         {ingredients.map((ingredient) => (
           <BurgerIngredientCard

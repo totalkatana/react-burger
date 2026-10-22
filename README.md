@@ -1,5 +1,25 @@
 # Стартер на JavaScript для проекта Stellar Burger
 
+## Запуск и структура
+
+- `npm install` — установка зависимостей.
+- `npm run dev` — запуск приложения.
+- `npm run build` — сборка.
+- `npm run check` — проверка JavaScript и CSS без изменения файлов.
+
+Компоненты и их CSS Modules находятся в `src/components`. Общие стили — в
+`src/index.css`, шрифты поставляются UI-библиотекой, изображения находятся в
+`src/assets/images` и `public/images`. Изображения ингредиентов приходят по URL из API.
+
+В `src/services` находятся слайсы каталога, конструктора, заказа и просматриваемого
+ингредиента. Асинхронные экшены вынесены в файлы `*-actions.js`. Селекторы, включая
+мемоизированные стоимость и счётчики, описаны в слайсах. Корневой редьюсер использует
+`combineSlices`, стор — `configureStore` с thunk и DevTools в режиме разработки.
+
+Булка в конструкторе одна и отображается дважды. Начинки имеют уникальные `id`,
+которые используются при удалении и сортировке; исходные `_id` отправляются в API.
+Перестановка применяется при сбросе на строку начинки, сброс снаружи порядок не меняет.
+
 ## Процедура создания коммита с проверками
 
 При создании коммита автоматически запускаются проверка линтерами `stylelint`, `eslint` и форматирование `prettier`.
@@ -31,7 +51,7 @@
 	alias: {
 		'@': path.resolve(__dirname, './src'),
 		'@components': path.resolve(__dirname, './src/components'),
-		'@services': path.resolve(__dirname, './src/utils'),
+		'@services': path.resolve(__dirname, './src/services'),
 		'@pages': path.resolve(__dirname, './src/pages'),
 		'@utils': path.resolve(__dirname, './src/utils'),
 	},
