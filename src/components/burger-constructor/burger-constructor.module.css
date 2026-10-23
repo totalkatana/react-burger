@@ -22,6 +22,41 @@
   list-style: none;
 }
 
+.placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 80px;
+  padding: 20px;
+  color: #f2f2f3;
+  font-size: 16px;
+  font-family: 'Jet Brains Mono', sans-serif;
+  line-height: 24px;
+  text-align: center;
+  background-color: #2f2f36;
+  border-radius: 40px;
+}
+
+.placeholder_top {
+  border-radius: 88px 88px 40px 40px;
+}
+
+.placeholder_active {
+  color: var(--text-primary-color);
+  background-color: #2f2f47;
+  border: 2px dashed var(--colors-interface-accent);
+}
+
+.placeholder_filling {
+  width: calc(100% - 32px);
+}
+
+.placeholder_bottom {
+  border-radius: 40px 40px 88px 88px;
+}
+
 .total {
   display: flex;
   justify-content: end;
